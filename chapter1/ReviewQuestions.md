@@ -72,14 +72,51 @@ Different wireless technologies that I often use:
 As a user, I care about the speed at which data is initially sent to my device (total delay) and data transfer speed that I can expect (average throughput), and the range that is required to connect to the network.  
 
 ## R11
+Using the assumptions provided in R11, assume that one packet P of length L bits is being sent between switching and recieving host. 
+
+To successfully transmit the packet, all bits of P must reach both the switch and the host machine.
+
+At time $t_0$, the sending host begins transferring the packet to the switch that finishes recieving the packet at time $L \cdot  R_1$ assuming no propagation delay. From the the switch begins sending the packet at time $L \cdot R_1$. By assumption, the switch transfers the packet in time $L \cdot R_2$. 
+
+The end to end delay E, can therefore be modelled as a sum of transfers required for the packet to reach the recieving host: \
+$E = L (R_1 + R_2)$
 
 ## R12
+Advantages of
+Curcuit vs packet switching
+- Maximal use of bandwidth to transmit messages since there are no competing connections/packets. 
+- Delays such as the processing delay are not present in circuit switching. 
+- Dedicated conneciton eliminates data loss due to network congestion. 
+
+TDM over FDM in a circuit switched network
+- FDM requires hardware to shift/transform signal into different frequency bands. This is not the case with TDM, which does require a queue algorithm to allocate timeslots to packets. 
+
 
 ## R13
+- A: Supposed each users transmits continously at 1 Mbps. Circuit switching shares bandwidth equally between users. Therefore, a total of 2 users can be supported at any one time, since each user requires 1 Mpbs throughput of the link. 
+- B:Suppose packet swithcing is used. Each user frequires 1 Mbps to send their packet. It is possible for two users to send their data with neligible queing delay because a the required maximal capaciity of 2 Mbps of bandwidth is available. The bandwidth required for 3 users to send data is 3 Mpbs which is why at least one user will experience processing delay.   
+- C: This is given in the problem as 20%. 
+- D: We assume that users transmitting data are independent events. We assume that the probablity of three users transmitting data can sampled from a binomal probablity distrbition. We use this distrbition to find the proability of three users simultanously transmitting data as:  
+
+$P(X = 3) = \binom{3}{3}0.2^3(1-0.2)^{3-3} = 0.2^3 = 0.008 $ 
+
 
 ## R14
+(ISP): Internet service point.
+
+(IXP): Internet exchange point. 
+
+It is sometimes beneficial for ISPs to send traffic to each other e.g. to improve transfer speed of data (see the trombine effect https://www.cloudflare.com/learning/cdn/glossary/internet-exchange-point-ixp/)
+
+If ISPs do not peer, they will have to send traffic through an intermediary ISP which they will have to pay for processing the traffic.  
+
+When two ISPs peer, they can reduce their payments to provider ISPs.  
+
+An IXP is a node that allows ISPs to meet. 
+IXP's earn money by charging a few for each ISP that establishes a connection. This fee may depend on the traffic that is sent from a given ISP. 
 
 ## R15
+
 
 ## R16
 
